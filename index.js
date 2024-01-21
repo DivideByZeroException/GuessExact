@@ -10,6 +10,9 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
+    app.get('/', (req, res) => {
+        res.send('Сервер запущен');
+    });
     console.log(`Express-сервер запущен на порту ${port}`);
 });
 
