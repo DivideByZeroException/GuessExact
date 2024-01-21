@@ -193,5 +193,5 @@ function generateRandomCoordinates() {
 
 
 
-console.log(process.env.discord_token)
+
 client.login(process.env.discord_token);
