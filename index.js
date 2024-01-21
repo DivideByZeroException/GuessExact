@@ -121,6 +121,7 @@ const secret_channel_id = '1198277832133070931';
 
 
 function setImg() {
+    console.log("Новая картинка");
     var randomCoordinates = generateRandomCoordinates();
     var url = `https://graph.mapillary.com/images?access_token=${apiKey}&fields=id,computed_geometry,thumb_1024_url&bbox=` + randomCoordinates.minLongitude + "," + randomCoordinates.minLatitude + "," + randomCoordinates.maxLongitude + "," + randomCoordinates.maxLatitude + "," + "&limit=1";
 
