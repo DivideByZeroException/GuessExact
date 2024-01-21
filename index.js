@@ -5,6 +5,7 @@ import express from "express"
 const app = express();
 const port = 3000;
 import dotenv from 'dotenv';
+import('discord.js')
 dotenv.config();
 app.get('/', (req, res) => {
     res.send('Привет, мир!');
@@ -21,7 +22,7 @@ const {
 const {
     EmbedBuilder
 } = require('discord.js');
-import('discord.js')
+
 const client = new Client({
     intents: Object.keys(GatewayIntentBits).map((a) => {
         return GatewayIntentBits[a]
