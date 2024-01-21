@@ -145,6 +145,7 @@ function setImg() {
                 });
         })
         .catch(error => {
+            console.error('Error fetching data:', error);
             setImg();
         });
 };
