@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import('discord.js')
 dotenv.config();
 app.get('/', (req, res) => {
-    res.send('Привет, мир!');
+    res.send('Все работает!');
 });
 
 app.listen(port, () => {
@@ -33,7 +33,6 @@ function sendImage() {
         let exampleEmbed = new EmbedBuilder()
             .setColor(generateRandomHexColor())
             .setTitle("Угадай страну")
-
             .setImage(imgURL)
         channel.send({
             embeds: [exampleEmbed]
