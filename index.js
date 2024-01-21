@@ -1,4 +1,4 @@
-import axios from 'axios'
+const axios = require('axios');
 import express from "express"
 import fetch from 'node-fetch';
 const app = express();
