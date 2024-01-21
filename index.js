@@ -52,12 +52,15 @@ client.on('messageCreate', (message) => {
 
     if (message.channelId != channelId) {} else {
         if (message.content.toLowerCase() == "/hint") {
-            let flagEmoji = String.fromCodePoint(...iso.split('').map(c => c.charCodeAt(0) + 127397));
-            message.react(flagEmoji);
+            if(iso!="" && iso!=null){
+                let flagEmoji = String.fromCodePoint(...iso.split('').map(c => c.charCodeAt(0) + 127397));
+                message.react(flagEmoji);
+            }
         }
         if (message.content.toLowerCase() == "/skip") {
             const channel = client.channels.cache.get(channelId);
-            if (channel) {
+            if (channel && iso!="" && iso!=null) {
+
                 channel.send("Это было " + iso + " " + String.fromCodePoint(...iso.split('').map(c => c.charCodeAt(0) + 127397)))
                 iso = null;
                 setImg();
