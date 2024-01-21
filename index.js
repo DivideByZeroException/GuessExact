@@ -4,7 +4,8 @@ const require = createRequire(import.meta.url);
 import express from "express"
 const app = express();
 const port = 3000;
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 app.get('/', (req, res) => {
     res.send('Привет, мир!');
 });
@@ -192,5 +193,5 @@ function generateRandomCoordinates() {
 
 
 
-let ds_token = process.env.TOKEN_DISCORD;
-client.login(ds_token);
+
+client.login(process.env.);
