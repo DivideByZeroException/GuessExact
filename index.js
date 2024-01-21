@@ -10,9 +10,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    app.get('/', (req, res) => {
-        res.send('Сервер запущен');
-    });
     console.log(`Express-сервер запущен на порту ${port}`);
 });
 
@@ -121,10 +118,10 @@ const secret_channel_id = '1198277832133070931';
 
 
 function setImg() {
-    console.log("Новая картинка");
+   
     var randomCoordinates = generateRandomCoordinates();
     var url = `https://graph.mapillary.com/images?access_token=${apiKey}&fields=id,computed_geometry,thumb_1024_url&bbox=` + randomCoordinates.minLongitude + "," + randomCoordinates.minLatitude + "," + randomCoordinates.maxLongitude + "," + randomCoordinates.maxLatitude + "," + "&limit=1";
-
+    console.log(url);
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -132,8 +129,10 @@ function setImg() {
             var coords = data.data[0].computed_geometry.coordinates;
             var x = coords[0];
             var y = coords[1];
+            console.log(imgURL);
             getCountryCodeByCoordinates(y, x, process.env.GEO_NAME)
                 .then((countryCode) => {
+                    console.log(countryCode);
                     if (countryCode == undefined) {
                         setImg();
                     } 
