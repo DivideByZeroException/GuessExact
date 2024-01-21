@@ -123,31 +123,31 @@ function setImg() {
     var randomCoordinates = generateRandomCoordinates();
     var url = `https://graph.mapillary.com/images?access_token=${apiKey}&fields=id,computed_geometry,thumb_1024_url&bbox=` + randomCoordinates.minLongitude + "," + randomCoordinates.minLatitude + "," + randomCoordinates.maxLongitude + "," + randomCoordinates.maxLatitude + "," + "&limit=1";
     console.log(url);
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            imgURL = data.data[0].thumb_1024_url;
-            var coords = data.data[0].computed_geometry.coordinates;
-            var x = coords[0];
-            var y = coords[1];
-            console.log(imgURL);
-            getCountryCodeByCoordinates(y, x, process.env.GEO_NAME)
-                .then((countryCode) => {
-                    console.log(countryCode);
-                    if (countryCode == undefined) {
-                        setImg();
-                    } 
-                    else {
-                        iso = countryCode;
-                        console.log(iso);
-                        sendImage();
-                    }
-                });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-            setImg();
-        });
+    // fetch(url)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         imgURL = data.data[0].thumb_1024_url;
+    //         var coords = data.data[0].computed_geometry.coordinates;
+    //         var x = coords[0];
+    //         var y = coords[1];
+    //         console.log(imgURL);
+    //         getCountryCodeByCoordinates(y, x, process.env.GEO_NAME)
+    //             .then((countryCode) => {
+    //                 console.log(countryCode);
+    //                 if (countryCode == undefined) {
+    //                     setImg();
+    //                 } 
+    //                 else {
+    //                     iso = countryCode;
+    //                     console.log(iso);
+    //                     sendImage();
+    //                 }
+    //             });
+    //     })
+    //     .catch(error => {
+    //         console.error('Error fetching data:', error);
+    //         setImg();
+    //     });
 };
 
 
