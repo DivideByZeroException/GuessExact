@@ -139,7 +139,6 @@ function setImg() {
                     else {
                         iso = countryCode;
                         console.log(iso);
-
                         sendImage();
                     }
                 });
