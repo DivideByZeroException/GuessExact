@@ -13,18 +13,11 @@ app.listen(port, () => {
     console.log(`Express-сервер запущен на порту ${port}`);
 });
 
-const {
-    Client,
-    GatewayIntentBits
-} = require('discord.js');
-const {
-    EmbedBuilder
-} = require('discord.js');
+import { Client, GatewayIntentBits } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 
 const client = new Client({
-    intents: Object.keys(GatewayIntentBits).map((a) => {
-        return GatewayIntentBits[a]
-    }),
+  intents: Object.keys(GatewayIntentBits).map((a) => GatewayIntentBits[a]),
 });
 
 function generateRandomHexColor() {
