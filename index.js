@@ -1,4 +1,4 @@
-const axios = require('node_modules/axios');
+const axios = require('/var/task/node_modules/axios');
 import express from "express"
 const fetch = require('node-fetch');
 const app = express();
