@@ -194,4 +194,4 @@ function generateRandomCoordinates() {
 
 
 
-client.login(process.env.);
+client.login(process.env.TOKEN_DISCORD);
