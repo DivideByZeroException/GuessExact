@@ -1,4 +1,5 @@
 import { createRequire } from "module";
+import axios from 'axios'
 const require = createRequire(import.meta.url);
 import express from "express"
 const app = express();
@@ -101,7 +102,7 @@ const apiKey = process.env.API_KEY_MAPILLARY;
 var imgURL = "";
 
 
-const axios = require('axios');
+
 
 async function getCountryCodeByCoordinates(lat, lng, username) {
     const apiUrl = `http://api.geonames.org/countryCodeJSON?lat=${lat}&lng=${lng}&username=${username}`;
