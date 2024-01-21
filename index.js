@@ -1,6 +1,4 @@
-import { createRequire } from "module";
 import axios from 'axios'
-const require = createRequire(import.meta.url);
 import express from "express"
 const app = express();
 const port = 3000;
@@ -32,15 +30,12 @@ const client = new Client({
 function generateRandomHexColor() {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     const hexColor = "#" + "0".repeat(6 - randomColor.length) + randomColor;
-
     return hexColor;
 }
 
 function sendImage() {
-
     const channel = client.channels.cache.get(channelId);
     const channel_secret = client.channels.cache.get(secret_channel_id);
-
     if (channel && channel_secret) {
         let exampleEmbed = new EmbedBuilder()
             .setColor(generateRandomHexColor())
@@ -65,9 +60,7 @@ client.on('messageCreate', (message) => {
 
     if (message.channelId != channelId) {} else {
         if (message.content.toLowerCase() == "/hint") {
-
             let flagEmoji = String.fromCodePoint(...iso.split('').map(c => c.charCodeAt(0) + 127397));
-
             message.react(flagEmoji);
         }
         if (message.content.toLowerCase() == "/skip") {
@@ -156,7 +149,6 @@ function setImg() {
         .catch(error => {
             setImg();
         });
-
 };
 
 
@@ -165,18 +157,12 @@ function setImg() {
 function getRandomCoordinate(min, max) {
     return Math.random() * (max - min) + min;
 }
-
 function generateRandomCoordinates() {
-
     const centerLatitude = getRandomCoordinate(-90, 90);
     const centerLongitude = getRandomCoordinate(-180, 180);
-
-
     const latitudeRange = 0.25;
     const minLatitude = Math.max(centerLatitude - latitudeRange / 2, -90);
     const maxLatitude = Math.min(centerLatitude + latitudeRange / 2, 90);
-
-
     const longitudeRange = 0.25;
     const minLongitude = (centerLongitude - longitudeRange / 2 + 180) % 360 - 180;
     const maxLongitude = (centerLongitude + longitudeRange / 2 + 180) % 360 - 180;
@@ -191,8 +177,5 @@ function generateRandomCoordinates() {
         maxLongitude,
     };
 }
-
-
-
 
 client.login(process.env.discord_token);
